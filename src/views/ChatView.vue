@@ -28,7 +28,6 @@ async function sendChat(e) {
   }
   try {
     const response = await axios.post('https://api.openai.com/v1/chat/completions', requestData, { headers: { "Content-Type": "application/json", "Authorization": `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}` } });
-    console.log(response.data.choices[0]);
     const responseMessage = response.data.choices[0].message.content;
     cState.messages.push({ role: "responder", message: responseMessage })
     cState.message = "";

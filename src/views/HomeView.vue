@@ -33,7 +33,6 @@ function shuffledOptions() {
     options[i] = options[j];
     options[j] = temp;
   }
-  console.log(options)
   return options;
 }
 
