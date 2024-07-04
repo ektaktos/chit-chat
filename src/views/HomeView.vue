@@ -1,10 +1,11 @@
 <script setup>
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useCounterStore } from '@/stores/counter';
 const store = useCounterStore();
 const { setActiveOption } = store;
 const cState = reactive({
-  activeOption: ''
+  activeOption: '',
+  shuffledOptions: []
 });
 
 const options = [{
@@ -36,6 +37,10 @@ function shuffledOptions() {
   return options;
 }
 
+onMounted(() => {
+  cState.shuffledOptions = shuffledOptions();
+})
+
 function updateActiveOption(option, role) {
   cState.activeOption = role;
   setActiveOption(role, option);
@@ -52,7 +57,7 @@ function updateActiveOption(option, role) {
       <p>Which role would you like to chat with today?</p>
     </div>
     <div class="options-stack">
-      <div v-for="(option, index) in shuffledOptions()" :key="index" class="options">
+      <div v-for="(option, index) in cState.shuffledOptions" :key="index" class="options">
         <div class="option" :class="{ active: cState.activeOption === option.alias }"
           @click="() => updateActiveOption(option.role, option.alias)">
           <p>{{ option.role }}</p>
