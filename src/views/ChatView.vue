@@ -43,12 +43,15 @@ async function sendChat(e) {
 <template>
   <div class="chat">
     <div class="chat-header">
-      <RouterLink to="/">
-        <p>Switch Bot</p>
-      </RouterLink>
+      <div></div>
       <p>You are currently chatting with <span style="text-transform:uppercase; font-weight: bold">{{
         cState.activeOption
           }}</span> bot</p>
+      <div>
+        <RouterLink to="/">
+          <p>Switch Bot</p>
+        </RouterLink>
+      </div>
     </div>
     <div class="chat-body">
       <div v-for="(message, index) in cState.messages" :key="index">
@@ -57,7 +60,7 @@ async function sendChat(e) {
             {{ message.message }}
           </div>
           <div :class="[message.role === 'sender' ? 'chat-body-name-left' : 'chat-body-name-right']">
-            <div class="chat-body-name-icon"></div>
+            <!-- <div class="chat-body-name-icon"></div> -->
             <span v-if="message.role === 'sender'">YOU</span>
             <span v-else>{{ cState.role }} Bot</span>
           </div>
@@ -69,8 +72,6 @@ async function sendChat(e) {
       <form @submit="sendChat">
 
         <div class="input-wrapper">
-
-          <img src="@/assets/svgs/paperclip.svg">
           <input type="text" v-model="cState.message" placeholder="Ask me anything">
           <img src="@/assets/svgs/send.svg">
         </div>
@@ -96,6 +97,13 @@ async function sendChat(e) {
   &-header {
     height: 5%;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 20%;
+      text-align: right;
+    }
   }
 
   &-body {
@@ -112,6 +120,7 @@ async function sendChat(e) {
 
         span {
           margin-left: 4px;
+          font-size: 13px;
         }
       }
 
@@ -139,7 +148,8 @@ async function sendChat(e) {
       margin-bottom: 12px;
 
       &-right {
-        width: 70%;
+        width: auto;
+        max-width: 70%;
         display: flex;
         border-radius: 10px 10px 0px 10px;
         background: #DEDEDE;
@@ -149,7 +159,8 @@ async function sendChat(e) {
       }
 
       &-left {
-        width: 70%;
+        width: auto;
+        max-width: 70%;
         float: left;
         border-radius: 10px 10px 10px 0px;
         background: #F1F1F1;

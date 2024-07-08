@@ -52,7 +52,7 @@ function updateActiveOption(option, role) {
 <template>
   <div class="home-section">
     <div class="home-heading">
-      <p>Hello, welcome to xxx</p>
+      <p>Hello, welcome to <strong>RoleTalk</strong></p>
       <p>Which role would you like to chat with today?</p>
     </div>
     <div class="options-stack">
@@ -103,16 +103,16 @@ function updateActiveOption(option, role) {
 
     .option {
       border-radius: 16px;
-      border: 1.5px solid #F0F0F0;
+      border: 1.5px solid rgba(240, 240, 240, 1);
       padding: 16px;
       width: 100%;
-      box-shadow: 0px 4px 11px 0px #0000000A;
+      box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.04);
       text-align: left;
       cursor: pointer;
 
       &.active {
-        background-color: #999999;
-        color: #FFF;
+        border: 1.5px solid rgba(1, 53, 0, 1);
+        color: rgba(1, 53, 0, 1);
       }
     }
   }
@@ -123,7 +123,7 @@ function updateActiveOption(option, role) {
 
   button {
     text-align: center;
-    background: #999999;
+    background: rgba(1, 53, 0, 1);
     color: #FFF;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), 0px 1px 3px rgba(0, 0, 0, 0.025);
     padding: 16px 0;

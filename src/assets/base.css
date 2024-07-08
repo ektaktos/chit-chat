@@ -35,7 +35,7 @@
 
   --section-gap: 160px;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--vt-c-black);
@@ -48,7 +48,7 @@
     --color-heading: var(--vt-c-text-dark-1);
     --color-text: var(--vt-c-text-dark-2);
   }
-}
+} */
 
 *,
 *::before,
@@ -88,4 +88,5 @@ body {
 a {
   text-decoration: none;
   padding: 0;
+  color: rgba(27, 27, 27, 1);
 }
